@@ -1,0 +1,72 @@
+<style>
+  #applications table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0px solid black;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: middle;
+  }
+
+  #applications table {
+    margin: 2% 5%;
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 90%;
+  }
+
+  #applications th, td {
+    padding: 12px 15px;
+  }
+
+  #applications table tbody tr:nth-child(odd) {
+    background: #eac9c1;
+  }
+
+  #applications table tbody tr:nth-child(even) {
+    background: #ebd8d0;
+  }
+
+  #applications table thead {
+    background: #A33B20;
+    color: #fff;
+  }
+
+  #applications table thead tr:hover {
+    background: #782b17;
+  }
+
+  #applications table tbody tr:hover {
+    background: #e8beac;
+  }
+
+  #link {
+    margin-left: 2%;
+  }
+</style>
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Applications</h1>
+
+<div id="applications">
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Occupation</th>
+      <th>Phone Number</th>
+      <th>Amount</th>
+      <th>Purpose</th>
+      <th>Duration</th>
+      <th>Bank</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @applications.each do |application| %>
+    <%= render application %>
+  <% end %>
+  </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+    
+    <% if application.user_id == current_user.id %>
+      <tr id="<%= dom_id application %>">
+        <th><%= application.name %></th>
+        <th><%= application.age %></th>
+        <th><%= application.occupation %></th>
+        <th><%= application.phone_number %></th>
+        <th><%= application.amount %></th>
+        <th><%= application.purpose %></th>
+        <th><%= application.duration %></th>
+        <th>
+        <%= 
+          if application.bank == "sbi"
+            "SBI"
+          elsif application.bank == "icici"
+            "ICICI Bank"
+          elsif application.bank == "axis"
+            "AXIS Bank"
+          else
+            "HDFC Bank"
+          end
+        %>
+        </th>
+        <th><%= link_to "Show this application", application %></th>
+      </tr>
+    <% end %>

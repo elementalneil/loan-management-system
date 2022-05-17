@@ -1,0 +1,88 @@
+<style>
+
+    .Navbar {
+        background-color: #A33B20;
+        color: #ffffff;
+        padding: 1% 2%;
+        margin: 0;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    ul li {
+        display: inline;
+        padding: 0 1%;
+        font-size: 1.4em;
+        font-weight: 500;
+    }
+
+    ul li a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .sheep_cloth {
+        border: none;
+        background-color: inherit;
+        color: rgb(105,103,104);
+    }
+
+    .sheep_cloth:hover {
+        border: none;
+        background-color: inherit;
+        color: rgb(70,69,69);
+    }
+
+    .websitename,.linkpage{
+        font-size:25px; 
+        letter-spacing:2px; 
+        color: #000000; 
+    }
+    .linkpage:hover{
+        text-shadow: 3px 3px 30px #ffffff;
+    }
+
+</style>
+
+<nav class="navbar navbar-expand-lg p-3 navibar navbar-light" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 30% , rgba(255, 255, 255, 0.0))">
+  <div class="container-fluid">
+    <%= link_to 'LOANdekho.com', root_path, class: "navbar-brand websitename" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav" style="margin-left:30px;">
+        <li class="nav-item linkpage" style="margin-left:0px;">
+          <% if user_signed_in? %>
+          <%= link_to 'Applications', applications_path, class: "nav-link" %>
+          <% else %>
+          <%= link_to 'Applications', new_user_session_path, class: "nav-link" %>
+          <% end %>
+        </li>
+        <li class="nav-item linkpage " style="margin-left:10px;">
+          <li><%= link_to 'About', home_about_path, class: "nav-link" %></li>
+        </li>
+
+        <% if user_signed_in? %>
+          <li class="nav-item linkpage " style="margin-left:10px;">
+            <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'sheep_cloth' %>
+          </li>
+          <li class="nav-item linkpage " style="margin-left:10px;">
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %>
+          </li>
+          <li><p>Signed in as <%= current_user.email %></p></li>
+        <% else %>
+          <li class="nav-item linkpage " style="margin-left:10px;">
+            <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item linkpage " style="margin-left:10px;">
+            <%= link_to 'Sign In', new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
+  </div> 
+</nav>

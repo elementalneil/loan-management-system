@@ -1,0 +1,10 @@
+<div>
+    <h1><%= @head %></h1>
+    <p><%= @body %></p>
+    <br>
+    <% if user_signed_in? %>
+    <%= link_to "Continue With Application", new_application_path(q: @bank) %>
+    <% else %>
+    <%= link_to 'Sign In to Continue', new_user_session_path, class: "nav-link" %>
+    <% end %>
+</div>
